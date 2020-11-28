@@ -25,9 +25,9 @@ namespace DataAccessLayer
                 while(sqlDataReader.Read())
                 {
                     Student s = new Student();
-                    s.Name = sqlDataReader.GetString(0);
-                    s.IndexNumber = sqlDataReader.GetString(1);
-                    s.AverageMArk = sqlDataReader.GetDecimal(2);
+                    s.Name = sqlDataReader.GetString(1);
+                    s.IndexNumber = sqlDataReader.GetString(2);
+                    s.AverageMark = sqlDataReader.GetDecimal(3);
                     result.Add(s);
                 }
             
@@ -41,7 +41,7 @@ namespace DataAccessLayer
             {
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("INSERT INTO Students VALUES('{0}','{1}',{2})",s.Name,s.IndexNumber,s.AverageMArk);
+                sqlCommand.CommandText = string.Format("INSERT INTO Students VALUES('{0}','{1}',{2})",s.Name,s.IndexNumber,s.AverageMark);
                 sqlConnection.Open();
                 return sqlCommand.ExecuteNonQuery();
             }
