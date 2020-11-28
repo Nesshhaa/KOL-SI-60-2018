@@ -47,7 +47,6 @@ namespace PresentationLayer
 
             if (this.studentBuisness.InsertStudent(s))
                 RefreshData();
-            else
             MessageBox.Show("Greska!");
         }
     }
